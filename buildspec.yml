@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - mvn package -DskipTests
+      - aws cloudformation package --template-file sam.yaml --output-template-file output-sam.yaml --s3-bucket s3-code-pipeline-pets
+
+artifacts:
+  files:
+    - output-sam.yaml
+    - target/serverless-spring-example-1.0-SNAPSHOT.jar
