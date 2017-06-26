@@ -6,7 +6,7 @@ phases:
       - mvn package -DskipTests
       - mv target/classes/* .
       - rm -rf target src buildspec.yml pom.xml
-      - aws cloudformation package --template-file sam.yaml --output-template-file output-sam.json --s3-bucket s3-code-pipeline-pets
+      - aws cloudformation package --template-file sam.yaml --output-template-file output-sam.json
 
 artifacts:
   files:
